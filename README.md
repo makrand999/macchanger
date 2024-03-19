@@ -1,3 +1,3 @@
 # macchanger
-application that can scan and change mac addres
+application that can  change mac addres
 in windows
