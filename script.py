@@ -1,5 +1,7 @@
 import subprocess
 import time
+import os
+
 
 # Function to check if ping is successful
 def ping(host):
@@ -14,23 +16,26 @@ def read_values(file_path):
 def connect_to_wifi(ssid):
     subprocess.call(['netsh', 'wlan', 'connect', 'name=', ssid])
 
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
 # File containing list of values
-values_file = r'C:\Users\makar\Desktop\mac\macd.txt'
+values_file = os.path.join(script_dir, 'macd.txt')
 
 # Read values from the file
 values = read_values(values_file)
 
-# Try each value until ping to amazon.com succeeds
 for value in values:
-    # Connect to the Wi-Fi network MIT_TEST (replace with the actual SSID)
-   # Wait for a few seconds for the connection to establish
+  
    
    
-    connect_to_wifi('MIT_Test')  # Replace 'MIT_TEST' with the actual SSID of the Wi-Fi network
+    connect_to_wifi('MIT_Test')  
     time.sleep(5) 
     
     if not ping('amazon.com'):
         # Command to change registry value
+        # Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4d36e972-e325-11ce-bfc1-08002be10318}\0003
+        # string file with name NetworkAddress
         reg_command = f'reg add "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Class\\{{4d36e972-e325-11ce-bfc1-08002be10318}}\\0003" /v NetworkAddress /t REG_SZ /d "{value}" /f'
         # Execute registry command
         subprocess.call(reg_command, shell=True)
