@@ -1,15 +1,15 @@
-# macchanger
-application that can  change mac addres
-in windows
-in above code you just need to change ssid name of the wifi which is nothing but name of the wifi in place of MIT.Test and path to the text file in which  mac addres or list of mac address is present 
-the mac address shoud be a plane string without (:) and if you want to try list of mac then each mac should be on new line
-you can get mac address of the devices connnected to the network with the help of this https://github.com/systematicat/hack-captive-portals.git tool.This tool only works on linux sou can download wsl(windows subsystem for linux)
+# macc spoofing
+repuirements :-
+python
 
-place where mac address of the windows is stored
+install 
+Download the Script from GitHub:
 
-we need to create a string file first in registry editor
-the path is 
- Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4d36e972-e325-11ce-bfc1-08002be10318}\0003
-create a new string file by left click then new and string and name the file as NetworkAddress
+Go to the GitHub repository that hosts the MAC spoofing script.
+Click the green Code button.
+Select Download ZIP from the dropdown menu.
+Navigate to the extracted folder
+run script.py  by double click
+This will prompt you to approve the script for administrative access (UAC prompt). Click Yes to allow it.
 
-run the application as administrator
+Note: Changing a MAC address requires administrator privileges because the operation directly interacts with your network interfaces. This is why you'll be prompted to approve administrator permissions when running the script.
